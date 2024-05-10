@@ -42,7 +42,7 @@ export default {
         this.isLoading = true; // Set loading state to true
 
         // Make the API call
-        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+        const response = await axios.post('http://localhost:3000/', {
           title: this.inputValue,
           body: 'bar',
           userId: 1,
