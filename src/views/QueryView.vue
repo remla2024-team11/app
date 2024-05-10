@@ -42,7 +42,7 @@ export default {
         this.isLoading = true; // Set loading state to true
 
         // Make the API call
-        const response = await axios.post('http://localhost:3000/', {
+        const response = await axios.post(import.meta.env.VITE_API, {
           title: this.inputValue,
           body: 'bar',
           userId: 1,
