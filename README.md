@@ -1,5 +1,5 @@
 # APP-Frontend
-Brief description of the backend project.
+Brief description of the Frontend project.
 
 
 ### Prerequisites
