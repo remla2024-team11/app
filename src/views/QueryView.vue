@@ -68,7 +68,7 @@ export default {
     try{
     const response = await axios.get(`${import.meta.env.VITE_API}/version`);
     this.version = response.data.version;}
-    catch{
+    catch(error){
       console.error('Error fetching version:', error);
       this.version='0.0.0';
     }

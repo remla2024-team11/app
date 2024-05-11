@@ -1,35 +1,49 @@
-# app-frontend
+# APP-Frontend
+Brief description of the backend project.
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+### Prerequisites
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Before you begin, ensure you have met the following requirements:
 
-## Customize configuration
+- You have installed Docker on your machine. If not, you can download and install it from [here](https://www.docker.com/products/docker-desktop).
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Installation
 
-## Project Setup
+1. **Clone the repository:**
 
-```sh
-npm install
-```
+   ```bash
+   git clone https://github.com/remla2024-team11/app-frontend.git
+   ```
 
-### Compile and Hot-Reload for Development
+2. **Navigate to the project directory:**
 
-```sh
-npm run dev
-```
+   ```bash
+   cd your-repo
+   ```
 
-### Compile and Minify for Production
+3. **Create a `.env` file:**
 
-```sh
-npm run build
-```
+   Create a `.env` file in the project root and add your environment variables.
+    ```
+        VITE_API=http://localhost:5173/api
+    ```
+### Running the Project
 
-### Lint with [ESLint](https://eslint.org/)
+To run the project, follow these steps:
 
-```sh
-npm run lint
-```
+1. **Make sure the `.env` file exists:**
+
+   Ensure the `.env` file exists in the project root directory with the necessary environment variables.
+
+2. **Run Docker Compose:**
+
+   ```bash
+   docker-compose up
+   ```
+
+   This command will start the project and make it accessible at http://localhost:8080.
+
+### Stopping the Project
+
+To stop the project, press `Ctrl + C` in the terminal where Docker Compose is running.
