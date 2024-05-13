@@ -1,6 +1,9 @@
 <template>
   <div class="flex justify-center items-center h-screen">
     <form @submit.prevent="submitForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="flex p-2">
+        You are using version {{ version }}
+      </div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="inputField">
           Input Field
@@ -34,6 +37,7 @@ export default {
       name: null, // Add result field
       age: null,
       salary: null,
+      version: null,
     };
   },
   methods: {
@@ -42,15 +46,13 @@ export default {
         this.isLoading = true; // Set loading state to true
 
         // Make the API call
-        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-          title: this.inputValue,
-          body: 'bar',
-          userId: 1,
+        const response = await axios.post(`${import.meta.env.VITE_API}/post`, {
+          url: this.inputValue,
         });
-
+        console.log(this.inputValue)
         // Handle the response
-        console.log('API response:', response.data);
-        this.name = response.data.title; 
+        console.log('API response:', response.data.data.url);
+        this.name = response.data.data.url; 
 
       } catch (error) {
         // Handle any errors
@@ -58,6 +60,15 @@ export default {
       } finally {
         this.isLoading = false; // Reset loading state whether the call succeeds or fails
       }
+    }
+  },
+  async mounted() {
+    try{
+    const response = await axios.get(`${import.meta.env.VITE_API}/version`);
+    this.version = response.data.version;}
+    catch(error){
+      console.error('Error fetching version:', error);
+      this.version='0.0.0';
     }
   }
 };
