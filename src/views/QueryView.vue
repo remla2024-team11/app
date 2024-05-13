@@ -47,14 +47,12 @@ export default {
 
         // Make the API call
         const response = await axios.post(`${import.meta.env.VITE_API}/post`, {
-          title: this.inputValue,
-          body: 'bar',
-          userId: 1,
+          url: this.inputValue,
         });
-
+        console.log(this.inputValue)
         // Handle the response
-        console.log('API response:', response.data);
-        this.name = response.data.title; 
+        console.log('API response:', response.data.data.url);
+        this.name = response.data.data.url; 
 
       } catch (error) {
         // Handle any errors
